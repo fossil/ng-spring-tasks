@@ -2,10 +2,7 @@ package org.pakhomov.tasks.controller;
 
 import org.pakhomov.tasks.domain.Task;
 import org.pakhomov.tasks.service.TaskService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**Created by fossil on
  * @author Victor Pakhomov
@@ -27,7 +24,7 @@ public class TaskController {
     }
 
     @PostMapping("/save")
-    public Task save(Task task) {
+    public Task save(@RequestBody Task task) {
         return taskService.save(task);
     }
 }
