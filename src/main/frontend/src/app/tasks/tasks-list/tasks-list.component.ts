@@ -17,17 +17,21 @@ export class TasksListComponent implements OnInit {
 //    this.tasks.push(new Task(1, "Task 1", true, "04/08/2018"));
 //    this.tasks.push(new Task(2, "Task 2", true, "05/08/2018"));
 //    this.tasks.push(new Task(3, "Task 3", true, "06/08/2018"));
-    return this.taskService.getTasks()
+    this.taskService.getTasks()
       .subscribe(
         (tasks: any[]) => {
           this.tasks = tasks
         },
         (error) => console.log(error)
       );
+
+      this.taskService.onTaskAdded.subscribe(
+        (task : Task) => this.tasks.push(task)
+      );
   }
 
   getDueDateLabel(task: Task) {
-    return task.completed ? "label-succes": "label-primary";
+    return task.completed ? "badge-success": "badge-primary";
   }
 
   onTaskChange(event, task) {
