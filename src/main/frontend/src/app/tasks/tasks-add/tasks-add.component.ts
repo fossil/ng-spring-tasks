@@ -42,7 +42,7 @@ export class TasksAddComponent implements OnInit {
         mm = '0' + mm;
       }
 
-      return mm + '/' + dd + '/' + yyyy;
+      return dd + '/' + mm + '/' + yyyy;
     }
 
 }
